@@ -1,0 +1,20 @@
+<% content_for :title do %>
+	Sign in Page
+<% end %>
+
+<% content_for :form_left do %>
+<h2>Sign In</h2>
+<form action="/sessions" method="post" role="form">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<div class="form-group">
+		<label for="email">Email Address</label>
+		<input type="email" name="session[email]" class="form-control" id="email">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" name="session[password]" class="form-control" id="password">
+	</div>
+	<button type="submit" class="btn btn-success pull-right">Sign In</button>
+</form>
+<a href="/register">Don't have an account? Register.</a>
+<% end %>

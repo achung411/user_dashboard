@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header class="row">
+	<div class="col-xs-2">
+		<h3>The App</h3>
+	</div>
+	<div class="col-xs-1">
+		<a href="/">Home</a>
+	</div>
+	<div class="col-xs-1 col-xs-offset-8">
+		<a href="/signin">Sign in</a>
+	</div>
+</header>
+
+<div class="form_left col-sm-6 col-sm-offset-1">
+	<%= yield :form_left %>
+</div>
+
+<div class="form_right col-sm-4">
+	<% if flash[:notice] %>
+		<p class="green"><%= flash[:notice] %></p>
+	<% end %>
+	<% if flash[:error] %>
+		<p><%= flash[:error] %></p>
+	<% end %>
+	<% if flash[:errors]
+		flash[:errors].each do |error| %>
+			<p><%= error %></p> 
+		<% end %>
+	<% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
