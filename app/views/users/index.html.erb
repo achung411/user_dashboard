@@ -1,6 +1,32 @@
-<div>
-	<h1>Welcome to the Test</h1>
-	<p>
-		We're going to build a cool application using a MVC framework!  This application was built with the Village88 folks!
-	</p>
-</div>
+<% content_for :main do %>
+<h3>All Users</h3>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>email</th>
+			<th>created at</th>
+			<th>user level</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%	@everyone.each do |person| %>
+			<tr class="<%= cycle('odd', 'even') %>">
+				<td><%= person.id %></td>
+				<td><a href="/users/<%= person.id %>"><%= person.first_name + " " + person.last_name %></a></td>
+				<td><%= person.email %></td>
+				<td><%= person.created_at.strftime("%b %d, %Y") %></td>
+				
+			<% if person.admin == 9 %>
+				<td>admin</td>
+			<% else %>
+				<td>normal</td>
+			<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+<% end %>

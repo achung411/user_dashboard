@@ -10,7 +10,7 @@
 
 <header class="row">
 	<div class="col-xs-2">
-		<h3>The App</h3>
+		<h3><%= yield :appname %></h3>
 	</div>
 	<div class="col-xs-1">
 		<a href="/">Dashboard</a>
@@ -19,7 +19,7 @@
 		<a href="/">Profile</a>
 	</div>
 	<div class="col-xs-3  col-xs-offset-3">
-		<p>Welcome <%= session[:current_user] %></p>
+		<p>Welcome <%= session[:first_name] %></p>
 	</div>	
 	<div class="col-xs-1 col-xs-offset-1">
 		<a href="/logoff">Log off</a>
@@ -42,6 +42,10 @@
 			<p><%= error %></p> 
 		<% end %>
 	<% end %>
+</div>
+
+<div class="col-xs-10 col-xs-offset-1">
+	<%= yield :main %>
 </div>
 
 <%= yield %>

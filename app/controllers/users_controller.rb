@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	layout "users"
 
 	def index
+		@everyone = User.all
 	end
 
 	def create
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		# @user = User.find(params)
 	end
 
 	private
