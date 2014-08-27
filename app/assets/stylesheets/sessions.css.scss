@@ -6,7 +6,7 @@ header {
 
 	header h3 {
 		font-weight: bold;
-		margin: 10px;
+		margin: 0 0 10px 30px;
 	}
 
 	header, header a, header a:hover {
@@ -24,3 +24,19 @@ header {
 	.green {
 		color: green;
 	}
+
+.jumbotron {
+	background: url('t1.jpg');
+	margin: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+	.jumbotron h1, .jumbotron p {
+		color: white;
+	}
+	
+.bucket {
+	padding: 5px;
+	margin-left: 10px;
+}

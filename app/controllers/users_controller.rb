@@ -2,7 +2,12 @@ class UsersController < ApplicationController
 	layout "users"
 
 	def index
-		@everyone = User.all
+		if not_logged_in
+			flash[:error] = "Please sign in."
+			redirect_to "/signin"
+		else
+			@everyone = User.all
+		end
 	end
 
 	def create
@@ -17,14 +22,24 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		render layout: 'sessions'
 	end
 
 	def show
-		@user = User.find(session[:user_id])
+		if not_logged_in
+			flash[:error] = "Please sign in."
+			redirect_to "/signin"
+		else
+			@user = User.find(params[:id])
+		end
 	end
 
 	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :description)
+		end
+
+		def not_logged_in
+			session[:user_id] == nil
 		end
 end

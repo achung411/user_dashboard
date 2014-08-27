@@ -16,7 +16,7 @@
 		<a href="/users">Dashboard</a>
 	</div>
 	<div class="col-xs-1">
-		<a href="/">Profile</a>
+		<a href="/users/<%= session[:user_id] %>">Profile</a>
 	</div>
 	<div class="col-xs-3  col-xs-offset-3">
 		<p>Welcome <%= session[:first_name] %></p>
