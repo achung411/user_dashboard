@@ -13,3 +13,14 @@ thead {
 textarea {
 	overflow-y: auto;
 }
+
+.module_left, .module_right, .module_down {
+	border: 1px silver solid;
+	border-radius: 5px;
+	padding: 10px 20px 50px 20px;
+}
+
+.module_right {
+	color: black;
+	padding-bottom: 125px;
+}

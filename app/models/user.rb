@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
 				:length						=> {in: 2..30}
 
 	validates	:email, 		:presence	=> true,
-				:uniqueness					=> {case_sensitive: false},
 				:format						=> {with: EMAIL_REGEX}
+
+	validates	:email,			:uniqueness	=> {case_sensitive: false},
+				:unless 					=> :already_has_email?
 
 	validates	:password, 		:presence	=> true,
 				:confirmation				=> true,
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
 
 	def already_has_password?
 		!self.encrypted_password.blank?
+	end
+
+	def already_has_email?
+		!self.email.blank?
 	end
 
 	def has_password?(submitted_password)

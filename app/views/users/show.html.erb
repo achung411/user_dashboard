@@ -26,6 +26,10 @@
 		</tr>
 	</tbody>
 </table>
+<% if @user.id == session[:user_id] %>
+	<a href="/users/<%= session[:user_id] %>/edit"><button class="btn btn-info">Edit Info</button></a>
+<% end %>
+
 <% end %>
 
 <% content_for :main do %>
