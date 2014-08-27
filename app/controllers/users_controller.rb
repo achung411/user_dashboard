@@ -19,9 +19,9 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		
 		if User.count == 0
-			@user.update_attribute(:admin, 9.42)
+			@user.update(admin: 9.42)
 		else
-			@user.update_attribute(:admin, 1)
+			@user.update(admin: 1)
 		end
 
 		if @user.save
@@ -51,16 +51,13 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		# render text: params[:id]
 		if @user.update(user_params)
-			flash[:notice] = "tada!"
+			flash[:notice] = "User information has successfully been updated."
 			redirect_to action: "show"
 		else
 			flash[:errors] = @user.errors.full_messages
 			redirect_to action: "update"
 		end
-
-
 	end
 
 	private

@@ -1,0 +1,55 @@
+<% content_for :appname do %>
+	Pr0filer
+<% end %>
+
+<% content_for :title do %>
+	Edit profile
+<% end %>
+
+<% content_for :form_left do %>
+<h2>Edit profile for <%= @user.first_name %></h2>
+<form action="/admins/<%= @user.id %>" method="post" role="form" class="module_left">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="patch">
+	<h4>Edit Information</h4>
+	<div class="form-group">
+		<label for="first_name">First Name</label>
+		<input type="text" name="user[first_name]" class="form-control" id="first_name">
+	</div>
+	<div class="form-group">
+		<label for="first_name">Last Name</label>
+		<input type="text" name="user[last_name]" class="form-control" id="last_name">
+	</div>	
+	<div class="form-group">
+		<label for="email">Email Address</label>
+		<input type="email" name="user[email]" class="form-control" id="email">
+	</div>
+	<div class="form-group">
+		<label for="admin">User Level</label>
+		<select name="user[admin]" class="form-control" id="admin">
+			<option value="normal">Normal</option>
+			<option value="admin">Admin</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-success pull-right">Save</button>	
+	</div>	
+</form>
+<% end %>
+
+<% content_for :form_right do %>
+<form action="/admins/<%= @user.id %>" method="post" role="form" class="module_right">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="patch">
+	<h4>Change Password</h4>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" name="user[password]" class="form-control" id="password">
+	</div>
+	<div class="form-group">
+		<label for="password2">Confirm Password</label>
+		<input type="password" name="user[password_confirmation]" class="form-control" id="password2">
+	</div>
+	<button type="submit" class="btn btn-success pull-right">Update Password</button>
+</form>
+<% end %>
