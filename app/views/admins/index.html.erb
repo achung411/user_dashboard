@@ -12,6 +12,7 @@
 			<th>email</th>
 			<th>created at</th>
 			<th>user level</th>
+			<th>actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,6 +28,11 @@
 			<% else %>
 				<td>admin</td>
 			<% end %>
+
+				<td>
+					<a href="/admin/<%= person.id %>/edit">edit</a>
+					<a href="/admin/<%= person.id %>" data-method="delete">remove</a>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

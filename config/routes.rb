@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   root 'sessions#index'
 
   resources :users
-  resources :dashboard
-
+  resources :admins, only: [:index, :update, :edit]
   post '/sessions', to: 'sessions#create'
 
   get '/signin', to: 'sessions#new'

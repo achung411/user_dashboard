@@ -14,9 +14,15 @@ class User < ActiveRecord::Base
 
 	validates	:password, 		:presence	=> true,
 				:confirmation				=> true,
-				:length						=> {in: 8..100}
+				:length						=> {in: 8..100},
+				:unless 					=> :already_has_password?
 
 	before_save :encrypt_password
+	after_save :clear_password
+
+	def already_has_password?
+		!self.encrypted_password.blank?
+	end
 
 	def has_password?(submitted_password)
 		self.encrypted_password == encrypt(submitted_password)
@@ -30,11 +36,17 @@ class User < ActiveRecord::Base
 
 	private
 		def encrypt_password
-			self.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{self.password}") if self.new_record?
-			self.encrypted_password = encrypt(self.password)
+			if password.present?
+				self.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{self.password}") if self.new_record?
+				self.encrypted_password = encrypt(self.password)
+			end
 		end
 
 		def encrypt(pass)
 			Digest::SHA2.hexdigest("#{self.salt}--#{pass}")
+		end
+
+		def clear_password
+			self.password = nil
 		end
 end
