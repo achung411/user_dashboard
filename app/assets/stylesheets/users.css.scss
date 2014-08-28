@@ -48,3 +48,14 @@ textarea {
 		height: 60px;
 
 	}
+
+	.commenter {
+		border: 1px green solid;
+		padding: 10px;
+	}
+
+		.commenter div {
+			border: 1px green solid;
+			overflow-y: auto;
+			height: 60px;
+		}

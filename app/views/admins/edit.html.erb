@@ -11,6 +11,7 @@
 <form action="/admins/<%= @user.id %>" method="post" role="form" class="module_left">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	<input type="hidden" name="_method" value="patch">
+	<input type="hidden" name="updater" value="user_details">
 	<h4>Edit Information</h4>
 	<div class="form-group">
 		<label for="first_name">First Name</label>
@@ -41,6 +42,7 @@
 <form action="/admins/<%= @user.id %>" method="post" role="form" class="module_right">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	<input type="hidden" name="_method" value="patch">
+	<input type="hidden" name="updater" value="user_password">
 	<h4>Change Password</h4>
 	<div class="form-group">
 		<label for="password">Password</label>

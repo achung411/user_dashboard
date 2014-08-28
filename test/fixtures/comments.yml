@@ -4,8 +4,10 @@ one:
   content: MyText
   user_id: 
   message_id: 
+  author_id: 1
 
 two:
   content: MyText
   user_id: 
   message_id: 
+  author_id: 1

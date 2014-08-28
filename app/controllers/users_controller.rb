@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 		else
 			@user = User.find(params[:id])
 			@messages = @user.messages
+			@comments = @user.comments
 		end
 	end
 
