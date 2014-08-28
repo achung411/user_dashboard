@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :admins, only: [:index, :update, :edit]
   post '/sessions', to: 'sessions#create'
+  post '/comments', to: 'comments#create'
+  get 'comments/destroy'
+  post '/messages', to: 'messages#create'
+  get 'messages/destroy'
 
   get '/signin', to: 'sessions#new'
   get '/register', to: 'users#new'

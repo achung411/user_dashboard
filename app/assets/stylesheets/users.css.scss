@@ -25,12 +25,10 @@ textarea {
 }
 
 	.main form {
-		border: 1px red solid;
 		padding: 10px 20px 50px 20px;
 	}
 
-.messenger {
-	border: 1px silver solid;
+.messenger, .commenter {
 	padding: 10px;
 }
 
@@ -42,20 +40,10 @@ textarea {
 		font-style: italic;
 	}
 
-	.messenger div {
+	.messenger div, .commenter div {
 		border: 1px silver solid;
+		border-radius: 5px;
 		overflow-y: auto;
 		height: 60px;
-
-	}
-
-	.commenter {
-		border: 1px green solid;
 		padding: 10px;
 	}
-
-		.commenter div {
-			border: 1px green solid;
-			overflow-y: auto;
-			height: 60px;
-		}
