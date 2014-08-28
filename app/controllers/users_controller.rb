@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 			redirect_to "/signin"
 		else
 			@user = User.find(params[:id])
+			@messages = @user.messages
 		end
 	end
 

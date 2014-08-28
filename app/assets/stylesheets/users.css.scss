@@ -23,3 +23,28 @@ textarea {
 .module_right {
 	color: black;
 }
+
+	.main form {
+		border: 1px red solid;
+		padding: 10px 20px 50px 20px;
+	}
+
+.messenger {
+	border: 1px silver solid;
+	padding: 10px;
+}
+
+	.title {
+
+	}
+
+	.timed {
+		font-style: italic;
+	}
+
+	.messenger div {
+		border: 1px silver solid;
+		overflow-y: auto;
+		height: 60px;
+
+	}

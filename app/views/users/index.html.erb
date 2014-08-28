@@ -22,10 +22,10 @@
 				<td><%= person.email %></td>
 				<td><%= person.created_at.strftime("%b %d, %Y") %></td>
 				
-			<% if person.admin == "1" %>
-				<td>normal</td>
+			<% if person.admin == "9.42" %>
+				<td class="green">admin</td>
 			<% else %>
-				<td>admin</td>
+				<td>normal</td>
 			<% end %>
 			</tr>
 		<% end %>

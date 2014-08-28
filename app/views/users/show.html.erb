@@ -43,4 +43,23 @@
 		<button type="submit" class="btn btn-success pull-right">Post</button>
 	</div>
 </form>
+	<% timemark = Time.now %>
+	<% @messages.each do |entry| %>
+	<% timehours = ((timemark - entry.created_at) / 60) / 60 %>
+	<% timemins = ((timemark - entry.created_at) / 60) % 60 %>
+	<div class="messenger col-xs-12">
+		<h5>
+			<span class="title"><%= entry.author.first_name + " " + entry.author.last_name %> wrote</span>
+			<span class="timed pull-right">
+			<% if timehours > 1 %>
+				<%= timehours.round %> hours and 
+			<% end %>
+				<%= timemins.round %> minutes ago</span>
+		</h5>
+		<div class="col-xs-11 col-xs-offset-1">
+			<p><%= entry.content %></p>
+		</div>
+	</div>
+	<% end %>
+
 <% end %>
