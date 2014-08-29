@@ -94,6 +94,16 @@
 		<% end %>
 	<% end %> 	<!-- Comment -->
 
+	<form action="/comments/" method="post" role="form" class="col-xs-11 col-xs-offset-1">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="comment[user_id]" value="<%= @user.id %>">
+		<input type="hidden" name="comment[message_id]" value="<%= entry.id %>">
+		<div class="form-group">
+			<textarea name="comment[content]" rows="4" class="form-control">. . .</textarea>
+		</div>
+		<button type="submit" class="btn btn-success pull-right">Post</button>
+	</form>
+
 <% end %> 	<!-- Message -->
 
 <% end %> <!-- Main Content -->
