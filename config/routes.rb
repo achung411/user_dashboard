@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   root 'sessions#index'
 
   resources :users
-  resources :admins, only: [:index, :update, :edit]
+  resources :admins, only: [:index, :update, :edit, :destroy]
   post '/sessions', to: 'sessions#create'
   post '/comments', to: 'comments#create'
-  get 'comments/destroy'
+  get '/comments/destroy'
   post '/messages', to: 'messages#create'
-  get 'messages/destroy'
+  get '/messages/destroy'
 
   get '/signin', to: 'sessions#new'
   get '/register', to: 'users#new'

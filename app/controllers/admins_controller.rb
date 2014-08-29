@@ -59,8 +59,10 @@ class AdminsController < ApplicationController
 		end
 	end
 
-
 	def destroy
+		# render text: params[:id]
+		User.find(params[:id]).destroy
+		redirect_to :back
 	end
 
 	private
