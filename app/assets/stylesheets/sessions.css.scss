@@ -12,17 +12,39 @@ header {
 		color: #fdf6e3;
 	}
 
-	.form_left {
+	a:hover {
+		text-decoration: none;
+	}
+}
 
-		form {
-			margin: 20px 0 60px 0;
-		}
+.form_left {
 
-		button {
-			margin: 0 0 20px 10px;
-		}
+	form {
+		margin: 20px 0 60px 0;
 	}
 
+	button {
+		margin: 0 0 20px 10px;
+	}
+
+	.notice {
+		margin: 50px 0 0 0;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: aquamarine;
+
+		h4 {
+			margin: 0 0 10px 0;
+		}
+
+		thead {
+			background-color: transparent;
+		}
+
+		td {
+			padding: 0 10px 0 0;
+		}
+	}
 }
 
 .form_right {
