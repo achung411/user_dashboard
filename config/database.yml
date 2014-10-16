@@ -7,11 +7,12 @@
 default: &default
   adapter: sqlite3
   pool: 5
-  timeout: 5000
+  timeout: 5432
 
 development:
   <<: *default
   database: db/development.sqlite3
+  # database: portal_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,7 +20,9 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+  # database: portal_test
 
 production:
   <<: *default
   database: db/production.sqlite3
+  # database: portal_production
